@@ -50,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">Medical Imaging &amp; Medical Physics</a>
+                  <a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">Sheffield Teaching Hospitals</a>
                 </div>
 
                 <!-- mobile only nav -->
