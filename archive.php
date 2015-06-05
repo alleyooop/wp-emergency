@@ -1,51 +1,101 @@
-<?php
-/**
- * The template for displaying archive pages.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package wp-sth-emergency
- */
+<?php get_header(); ?>
+  <div id="content" class="clearfix">
 
-get_header(); ?>
+      <div class="row">
+        <header class="section-header">
+          <?php if (is_category()) { ?>
+						<h1 class="archive_title h2">
+							<span><?php _e("Posts Categorized:", "wpbootstrap"); ?></span> <?php single_cat_title(); ?>
+						</h1>
+					<?php } elseif (is_tag()) { ?> 
+						<h1 class="archive_title h2">
+							<span><?php _e("Posts Tagged:", "wpbootstrap"); ?></span> <?php single_tag_title(); ?>
+						</h1>
+					<?php } elseif (is_author()) { ?>
+						<h1 class="archive_title h2">
+							<span><?php _e("Posts By:", "wpbootstrap"); ?></span> <?php get_the_author_meta('display_name'); ?>
+						</h1>
+					<?php } elseif (is_day()) { ?>
+						<h1 class="archive_title h2">
+							<span><?php _e("Daily Archives:", "wpbootstrap"); ?></span> <?php the_time('l, F j, Y'); ?>
+						</h1>
+					<?php } elseif (is_month()) { ?>
+					    <h1 class="archive_title h2">
+					    	<span><?php _e("Monthly Archives:", "wpbootstrap"); ?></span> <?php the_time('F Y'); ?>
+					    </h1>
+					<?php } elseif (is_year()) { ?>
+					    <h1 class="archive_title h2">
+					    	<span><?php _e("Yearly Archives:", "wpbootstrap"); ?></span> <?php the_time('Y'); ?>
+					    </h1>
+					<?php } ?>
+        </header>
+      </div>
+    
+			<div class="row clearfix">
+				<div id="main" class="col-sm-8 clearfix" role="main">
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix well'); ?> role="article">
+						
+						<header>
+							
+							<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							
+							<p class="meta">Related: <?php _e("", "wpbootstrap"); ?> <?php the_category(', '); ?></p>
+						
+						</header> <!-- end article header -->
+					
+						<section class="post_content">
+						
+							<?php the_post_thumbnail( 'wpbs-featured' ); ?>
+						
+							<?php the_excerpt(); ?>
+					
+						</section> <!-- end article section -->
+						
+						<footer>
+							
+						</footer> <!-- end article footer -->
+					
+					</article> <!-- end article -->
+					
+					<?php endwhile; ?>	
+					
+					<?php if (function_exists('wp_bootstrap_page_navi')) { // if expirimental feature is active ?>
+						
+						<?php wp_bootstrap_page_navi(); // use the page navi function ?>
 
-		<?php if ( have_posts() ) : ?>
+					<?php } else { // if it is disabled, display regular wp prev & next links ?>
+						<nav class="wp-prev-next">
+							<ul class="pager">
+								<li class="previous"><?php next_posts_link(_e('&laquo; Older Entries', "wpbootstrap")) ?></li>
+								<li class="next"><?php previous_posts_link(_e('Newer Entries &raquo;', "wpbootstrap")) ?></li>
+							</ul>
+						</nav>
+					<?php } ?>
+								
+					
+					<?php else : ?>
+					
+					<article id="post-not-found">
+					    <header>
+					    	<h1><?php _e("No Posts Yet", "wpbootstrap"); ?></h1>
+					    </header>
+					    <section class="post_content">
+					    	<p><?php _e("Sorry, What you were looking for is not here.", "wpbootstrap"); ?></p>
+					    </section>
+					    <footer>
+					    </footer>
+					</article>
+					
+					<?php endif; ?>
+			
+				</div> <!-- end #main -->
+    
+				<?php get_sidebar(); // sidebar 1 ?>
+    
+    </div>
+			</div> <!-- end #content -->
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php
-
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
-			<?php the_posts_navigation(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

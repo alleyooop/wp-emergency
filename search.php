@@ -1,45 +1,85 @@
-<?php
-/**
- * The template for displaying search results pages.
- *
- * @package wp-sth-emergency
- */
+<?php get_header(); ?>
+  <div id="content" class="clearfix">
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    
+      <div class="row">
+        <header class="section-header">
+          <h1 itemprop="headline"><span><?php _e("Search Results for","wpbootstrap"); ?>:</span> <?php echo esc_attr(get_search_query()); ?></h1>
+        </header>
+        
+        <ol class="breadcrumb">
+          <li><a href="<?php echo home_url( '/' ); ?>">Home</a></li>
+          <li class="active">Search</li>
+        </ol>
+        
+      </div>
+      
+      <div class="row clearfix">
+        <div id="main" class="col-sm-8" role="main">
+          
+          <form action="<?php echo home_url( '/' ); ?>" method="get" class="form-inline">
+              <fieldset>
+                <div class="input-group">
+                  <input type="text" name="s" id="search" placeholder="<?php _e("Search","wpbootstrap"); ?>" value="<?php the_search_query(); ?>" class="form-control" />
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><?php _e("Search","wpbootstrap"); ?></button>
+                  </span>
+                </div>
+              </fieldset>
+          </form>
+          
 
-get_header(); ?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix well'); ?> role="article">
+						<header>
+							<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+						</header> <!-- end article header -->
+					
+						<section class="post_content">
+							<?php the_excerpt('<span class="read-more">' . __("Read more on","wpbootstrap") . ' "'.the_title('', '', false).'" &raquo;</span>'); ?>
+						</section> <!-- end article section -->
+						<footer>
+						</footer> <!-- end article footer -->
+					</article> <!-- end article -->
+					
+					<?php endwhile; ?>	
+					
+					<?php if (function_exists('wp_bootstrap_page_navi')) { // if expirimental feature is active ?>
+						
+						<?php wp_bootstrap_page_navi(); // use the page navi function ?>
+						
+					<?php } else { // if it is disabled, display regular wp prev & next links ?>
+						<nav class="wp-prev-next">
+							<ul class="clearfix">
+								<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "wpbootstrap")) ?></li>
+								<li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "wpbootstrap")) ?></li>
+							</ul>
+						</nav>
+					<?php } ?>			
+					
+					<?php else : ?>
+					
+					<!-- this area shows up if there are no results -->
+					
+					<article id="post-not-found">
+					    <header>
+					    	<h1><?php _e("Not Found", "wpbootstrap"); ?></h1>
+					    </header>
+					    <section class="post_content">
+					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "wpbootstrap"); ?></p>
+					    </section>
+					    <footer>
+					    </footer>
+					</article>
+					
+					<?php endif; ?>
+          
+          
+			
+				</div> <!-- end #main -->
+    			
+    			<?php get_sidebar(); // sidebar 1 ?>
+    
+			</div> <!-- end #content -->
+</div>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'wp-sth-emergency' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-				?>
-
-			<?php endwhile; ?>
-
-			<?php the_posts_navigation(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

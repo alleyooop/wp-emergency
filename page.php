@@ -1,35 +1,59 @@
-<?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package wp-sth-emergency
- */
+<?php get_header(); ?>
+  <div id="content" class="clearfix">
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    
+      <div class="row">
+        <header class="section-header">
+          <h1 itemprop="headline"><?php the_title(); ?></h1>
+        </header>
+        
+        <?php if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb();
+        } ?>
+        
+      </div>
+    
+    
+      
+      <div class="row clearfix">
+        <div id="main" class="col-sm-8" role="main">
+          <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix service-main'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+				
+            <section class="post_content clearfix well branded-well" itemprop="articleBody">
+              <?php the_content(); ?>
+              <?php wp_link_pages(); ?>
+            </section> <!-- end article section -->
 
-get_header(); ?>
+            <footer>
+              <?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","wpbootstrap") . ':</span> ', ' ', '</p>'); ?>	
+            </footer> <!-- end article footer -->
+					
+				  </article> <!-- end article -->
+        </div>
+        
+        <?php get_sidebar(); // sidebar 1 ?>
+       </div> <!-- end #main -->
+					
+					<?php comments_template('',true); ?>
+					
+					<?php endwhile; ?>			
+					
+					<?php else : ?>
+					
+					<article id="post-not-found">
+					    <header>
+					    	<h1><?php _e("Not Found", "wpbootstrap"); ?></h1>
+					    </header>
+					    <section class="post_content">
+					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "wpbootstrap"); ?></p>
+					    </section>
+					    <footer>
+					    </footer>
+					</article>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+        
+        <?php endif; ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			</div> <!-- end #content -->
 
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
-
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
-
-			<?php endwhile; // End of the loop. ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
