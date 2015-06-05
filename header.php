@@ -56,9 +56,6 @@
                 <!-- mobile only nav -->
                 <ul class="nav navbar-nav visible-xs collapsed collapse" id="navbar-mobile" style="height: 0px;">
                   <li><a href="<?php echo home_url( '/' ); ?>">Home</a></li>
-                  <li><a href="/patient-information/">Patient Information</a></li>
-                  <li><a href="/departments-services/">Departments &amp; Services</a></li>
-                  <li><a href="/contact/">Contact us</a></li>
                 </ul>
                 <!-- mobile only nav -->
               </nav>
@@ -66,7 +63,7 @@
 
               <ul class="nav navbar-nav navbar-right hidden-xs">
               <a href="<?php echo home_url( '/' ); ?>">
-                <img class="navbar-logo" alt="logo for the Sheffield Teaching Hospital NHS Foundation Trust" title="Sheffield Teaching Hospitals NHS Foundation Trust" src="<?php echo content_url('/themes/wp-mimp/images/logo-white.png'); ?>">
+                <img class="navbar-logo" alt="logo for the Sheffield Teaching Hospital NHS Foundation Trust" title="Sheffield Teaching Hospitals NHS Foundation Trust" src="<?php echo content_url('/themes/wp-sth-emergency/images/logo-white.png'); ?>">
                 </a>
             </ul>
           </div>
