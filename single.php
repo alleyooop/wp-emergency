@@ -12,7 +12,6 @@
       
       <div class="row clearfix">
         <div id="main" class="col-sm-8" role="main">
-          <img src="<?php echo content_url('/themes/wp-sth-emergency/images/header.jpg'); ?>" width="100%">
           <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix well'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 				
             <header class="section-header">
