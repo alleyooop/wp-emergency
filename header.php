@@ -52,35 +52,7 @@
                   </button>
                   <a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">Improving the Emergency Pathway</a>
                 </div>
-
-                <!-- mobile only nav -->
-                <ul class="nav navbar-nav visible-xs collapsed collapse" id="navbar-mobile" style="height: 0px;">
-                  <li><a href="<?php echo home_url( '/' ); ?>">Home</a></li>
-                </ul>
-                <!-- mobile only nav -->
               </nav>
-
-
-              <ul class="nav navbar-nav navbar-right hidden-xs">
-              <a href="<?php echo home_url( '/' ); ?>">
-                <img class="navbar-logo" alt="logo for the Sheffield Teaching Hospital NHS Foundation Trust" title="Sheffield Teaching Hospitals NHS Foundation Trust" src="<?php echo content_url('/themes/wp-sth-emergency/images/logo-white.png'); ?>">
-                </a>
-            </ul>
-          </div>
-          
-          <div class="row" id="main-nav">
-            <div class="hidden-xs">
-              <?php wp_bootstrap_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-
-              <?php //if(of_get_option('search_bar', '1')) {?>
-              <form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-                <div class="form-group">
-                  <input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="<?php _e('Search','wpbootstrap'); ?>">
-                </div>
-              </form>
-              <?php //} ?>
-            </div>
-
           </div>
 
 				</div> <!-- end .container -->
