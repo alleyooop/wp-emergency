@@ -3,7 +3,7 @@
 <footer role="contentinfo">
 			
         <section class="main-footer">
-          <div class="container">
+          <div class="container-fluid">
             <div class="row">
               <div id="widget-footer" class="clearfix">
 		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
@@ -23,7 +23,7 @@
         
         
         <section class="sub-footer">
-          <div class="container">
+          <div class="container-fluid">
             <div class="row">
               <div class="clearfix">
                 <p class="pull-right"><a href="#" title="Back to the top">back to the top</a></p>
