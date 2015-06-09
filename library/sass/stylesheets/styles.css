@@ -9138,11 +9138,9 @@ select.form-control:focus {
 }
 
 /* line 1, ../sass/_footer.scss */
-#main-footer {
-  background-color: #fff;
+.sub-footer {
   margin-top: 15px;
   padding: 15px;
-  border-top: 1px solid #efefef;
 }
 
 /* line 1, ../sass/_navbar.scss */
@@ -9197,17 +9195,21 @@ select.form-control:focus {
 }
 
 /* line 1, ../sass/_typography.scss */
-h1.h1-cta {
-  font-size: 25px;
+.main-header {
+  font-size: 35px;
   margin-top: 0px;
   color: #007EBC;
 }
 
 /* line 9, ../sass/_typography.scss */
-h2.h2-cta {
+h2.post-header {
   font-size: 26px;
-  text-transform: uppercase;
-  text-align: center;
   color: #007EBC;
   margin: 5px 0;
+}
+
+/* line 17, ../sass/_typography.scss */
+.section-header {
+  font-size: 36px;
+  margin-top: 0px;
 }
