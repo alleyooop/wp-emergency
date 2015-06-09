@@ -1,17 +1,22 @@
-h1.h1-cta {
+h1.main-header {
   
-  font-size: 25px;
+  font-size: 35px;
   margin-top: 0px;
   color: $brand-primary;
   
 }
 
-h2.h2-cta {
+h2.post-header {
   
   font-size: 26px;
-  text-transform: uppercase;
-  text-align: center;
   color: $brand-primary;
   margin: 5px 0;
+  
+}
+
+.section-header h1 {
+  
+  font-size: 36px;
+  margin-top: 0px;
   
 }

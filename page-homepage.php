@@ -11,7 +11,7 @@ Template Name: Homepage
 			<div id="content" class="clearfix row">
         
         <div class="col-md-12">
-          <h1>Recent Posts</h1>
+          <h1 class="main-header">Recent Posts</h1>
         </div>
 			
 				<div id="main" class="col-sm-8 clearfix" role="main">
@@ -36,7 +36,7 @@ Template Name: Homepage
             </div>
             <div class="media-body">
               <section class="post_content clearfix">
-                <h2 class="media-heading"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                <h2 class="post-header"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 <p class="meta"><?php _e("Posted", "wpbootstrap"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php echo get_the_date('F jS, Y', '','', FALSE); ?></time></p>
                 <p class="lead"><?php the_field('sth_summary'); ?></p>
                 <?php the_content(); ?>
