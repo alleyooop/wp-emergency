@@ -9,8 +9,6 @@
         } ?>
         
       </div>
-    
-    
       
       <div class="row clearfix">
         <div id="main" class="col-sm-8" role="main">
