@@ -21,7 +21,7 @@
             </header>
             
             <section class="post_content clearfix" itemprop="articleBody">
-              
+              <p class="lead"><?php the_field('sth_summary'); ?></p>
               <?php the_content(); ?>
               <?php wp_link_pages(); ?>
             </section> <!-- end article section -->

@@ -28,8 +28,9 @@ Template Name: Homepage
             <div class="media-left">
               <header>
               <a href="#">
-                <?php the_post_thumbnail( 'wpbs-featured' ); ?>
-                <img src="http://placehold.it/250x150">
+                <?php if(get_field('sth_youtube')) :?>
+                  <iframe width="250" height="190" src="https://www.youtube.com/embed/<?php the_field('sth_youtube');?>" frameborder="0" allowfullscreen></iframe>
+                <?php endif; ?>
               </a>
               </header>
             </div>
@@ -37,6 +38,7 @@ Template Name: Homepage
               <section class="post_content clearfix">
                 <h2 class="media-heading"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 <p class="meta"><?php _e("Posted", "wpbootstrap"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php echo get_the_date('F jS, Y', '','', FALSE); ?></time></p>
+                <p class="lead"><?php the_field('sth_summary'); ?></p>
                 <?php the_content(); ?>
               </section>
             </div>
