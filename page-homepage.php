@@ -29,7 +29,7 @@ Template Name: Homepage
               <header>
               <a href="#">
                 <?php if(get_field('sth_youtube')) :?>
-                  <iframe width="250" height="190" src="https://www.youtube.com/embed/<?php the_field('sth_youtube');?>" frameborder="0" allowfullscreen></iframe>
+                  <iframe width="330" height="250" src="https://www.youtube.com/embed/<?php the_field('sth_youtube');?>?rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>
                 <?php endif; ?>
               </a>
               </header>

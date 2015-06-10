@@ -17,7 +17,7 @@
             
             
             <header class="section-header">
-              <h1 itemprop="headline"><?php the_title(); ?></h1>
+              <h1 class="main-header" itemprop="headline"><?php the_title(); ?></h1>
             </header>
             
             <section class="post_content clearfix" itemprop="articleBody">
@@ -25,6 +25,13 @@
               <?php the_content(); ?>
               <?php wp_link_pages(); ?>
             </section> <!-- end article section -->
+            
+            <section id="video">
+            <?php if(get_field('sth_youtube')) :?>
+                  <iframe width="100%" height="450" src="https://www.youtube.com/embed/<?php the_field('sth_youtube');?>?rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>
+            <?php endif; ?>
+            
+            </section>
 
             <footer>
               <a href="<?php echo home_url( '/' ); ?>">Back</a>
