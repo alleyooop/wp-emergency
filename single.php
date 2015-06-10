@@ -27,6 +27,7 @@
             </section> <!-- end article section -->
 
             <footer>
+              <a href="<?php echo home_url( '/' ); ?>">Back</a>
               <?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","wpbootstrap") . ':</span> ', ' ', '</p>'); ?>	
             </footer> <!-- end article footer -->
 					

@@ -24,7 +24,8 @@
 						<footer>
 			
 							<p class="tags"><?php the_tags('<span class="tags-title">' . __("Tags","wpbootstrap") . ':</span> ', ' ', ''); ?></p>
-							
+							 <a href="<?php echo home_url( '/' ); ?>">Back</a>
+              
 						</footer> <!-- end article footer -->
 					
 					</article> <!-- end article -->
