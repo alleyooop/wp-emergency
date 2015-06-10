@@ -26,7 +26,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="clearfix">
-                <p class="pull-right"><a href="#" title="Back to the top">back to the top</a></p>
+                <p class="pull-right"><a href="#top" title="Back to the top">back to the top</a></p>
                 <p class="attribution">&copy; Sheffield Teaching Hosptials <?php echo date("Y"); ?> <?php // bloginfo('name'); ?></p>
               </div>
             </div>

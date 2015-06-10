@@ -14,7 +14,7 @@ Template Name: Homepage
           <h1 class="main-header">Recent Posts</h1>
         </div>
 			
-				<div id="main" class="col-sm-8 clearfix" role="main">
+				<div id="main" class="col-sm-8 col-xs-8 clearfix" role="main">
           
           
           <?php

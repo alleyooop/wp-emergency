@@ -35,7 +35,7 @@
 	
 	<body <?php body_class(); ?>>
 				
-		<header role="banner">
+		<header role="banner" id="top">
 				
 			<div class="navbar navbar-inverse">
 				<div class="container">
