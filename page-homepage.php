@@ -9,10 +9,6 @@ Template Name: Homepage
 
 			
 			<div id="content" class="clearfix row">
-        
-        <div class="col-md-12">
-          <h1 class="main-header">Recent Posts</h1>
-        </div>
 			
 				<div id="main" class="col-sm-8 col-xs-8 clearfix" role="main">
           
