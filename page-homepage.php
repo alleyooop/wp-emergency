@@ -6,16 +6,15 @@ Template Name: Homepage
 
 <?php get_header(); ?>
 
-
-			
+		
 			<div id="content" class="clearfix row">
 			
-				<div id="main" class="col-sm-12 col-xs-12 clearfix" role="main">
-          
+				<div id="main" class="col-sm-12 col-xs-12 clearfix" role="main">  
           
           <?php
            global $post;
-           $myposts = get_posts();
+           $args = array('posts_per_page' => -1);
+           $myposts = get_posts($args);
            foreach($myposts as $post) :
            ?>
           
@@ -52,5 +51,6 @@ Template Name: Homepage
 				<?php // get_sidebar(); // sidebar 1 ?>
     
 			</div> <!-- end #content -->
+
 
 <?php get_footer(); ?>
